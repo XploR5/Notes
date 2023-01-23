@@ -7,18 +7,18 @@ const noteRouter = require('./routes/noteRoutes')
 
 const mongoose = require('mongoose')
 const dbURI =
-'mongodb+srv://test:secure@cluster0.qwzp9jd.mongodb.net/?retryWrites=true&w=majority'
+  'mongodb+srv://test:secure@cluster0.qwzp9jd.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose
-.connect(dbURI)
-.then((result) => {
-  console.log('Connected to DB')
-  // console.log(result)
-  app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+  .connect(dbURI)
+  .then((result) => {
+    console.log('Connected to DB')
+    // console.log(result)
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`)
+    })
   })
-})
-.catch((err) => console.log(err))
+  .catch((err) => console.log(err))
 
 app.use(express.json())
 app.use('/users', userRouter)

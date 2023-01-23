@@ -6,10 +6,10 @@ const noteRouter = express.Router()
 
 noteRouter.post('/', auth, createNote )
 
-noteRouter.get('/', getAllNotes)
+noteRouter.get('/',auth, getAllNotes)
 
-noteRouter.put('/:id', updateNote)
+noteRouter.put('/:id',auth, updateNote)
 
-noteRouter.delete('/:id', removeNote)
+noteRouter.delete('/:id',auth, removeNote)
 
 module.exports = noteRouter;
