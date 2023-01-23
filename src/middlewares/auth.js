@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const SECRETKEY = 'SECURE_SECRETKEY'
+const SECRETKEY = process.env.SECRETKEY
 
 const auth = async (req, res, next) => {
   try {
@@ -10,11 +10,11 @@ const auth = async (req, res, next) => {
       next()
     }
     else {
-      res.status(401).json({ message: 'Unauthorized user' })
+      return res.status(401).json({ message: 'Unauthorized user' })
     }
   }
   catch (err) {
-    console.log(err) 
+    console.log(err)
     res.status(401).json({ message: 'Unauthorized user' })
   }
 }
